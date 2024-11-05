@@ -14,8 +14,11 @@ import act1 from "../public/tctt-1.jpg";
 import act2 from "../public/MyMind.JPG";
 import act3 from "../public/Op1.JPG";
 import act4 from "../public/AAA.JPG";
-import s1 from "../public/Pico.png";
-import s2 from "../public/go.png";
+import leet from "../public/LeetCode.png";
+import go from "../public/exercism.png";
+import picoic from "../public/picoicon.png"
+import hunt from "../public/Hunt.png"
+import huntic from "../public/huntic.png"
 import cer1 from "../public/cer1.JPG";
 import cer2 from "../public/cer2.JPG";
 import cer3 from "../public/cer3.JPG";
@@ -26,6 +29,7 @@ import cer7 from "../public/cer8.JPG";
 import cer8 from "../public/cer10.JPG";
 import cer9 from "../public/cer11.JPG";
 import cer10 from "../public/cer12.JPG";
+import SkillImg from "../components/SkillImg";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
@@ -37,17 +41,28 @@ export default function Home() {
 
   return (
     <div className={darkMode ? "dark" : ""}>
-      <main className="bg-white px-10 dark:bg-gray-900 md:px-20 lg:px-40">
+      <main className="bg-white dark:bg-gray-900 ">
         <section className="min-h-screen">
-          <nav className="py-10 mb-12 flex items-center justify-between dark:text-white">
-            <div className="flex-none">
-              <BsFillMoonStarsFill
-                onClick={() => setDarkMode(!darkMode)}
-                className="cursor-pointer text-2xl"
-              />
+          <nav className="py-6 mb-12 bg-white dark:bg-gray-900 w-full fixed z-10 my-auto flex">
+            <div className="place-items-center flex dark:text-white justify-around my-auto mx-auto w-2/5">
+              <button><a href="#home" >Home</a></button>
+              <button><a href="#Act" >Activities & Competitions</a></button>
+              <button><a href="#Skill" >Skills</a></button>
+              <button><a href="#cer" >Certificate</a></button>
+            </div>
+            <div className="dark:text-white mx-10">
+              <div className="flex-none">
+                <BsFillMoonStarsFill
+                  onClick={() => setDarkMode(!darkMode)}
+                  className="cursor-pointer text-2xl"
+                />
+              </div>
             </div>
           </nav>
-          <div className="text-center p-10 py-10">
+          <div className="text-center py-10" id="home">
+            <div className="flex items-center justify-center mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 mb-12 relative overflow-hidden mt-20 md:h-96 md:w-96">
+              <Image src={me} layout="fill" objectFit="cover" alt="Nithimeth Mandee" />
+            </div>
             <h2 className="text-5xl py-2 text-teal-600 font-medium dark:text-teal-400 md:text-6xl">
               Nithimeth Mandee
             </h2>
@@ -55,7 +70,7 @@ export default function Home() {
               Third-year student in the Faculty of Information and Communication Technology at Mahidol University.
             </h3>
             <p className="text-md py-5 leading-8 text-gray-800 dark:text-gray-200 max-w-xl mx-auto md:text-xl">
-            I&apos;m junior developer with a focus on developing software engineer, full-stack development, and cybersecurity. I love to learn new things, pursue new passions, gain experience, and am always ready to develop myself.
+              I&apos;m junior developer with a focus on developing software engineer, full-stack development, and cybersecurity. I love to learn new things, pursue new passions, gain experience, and am always ready to develop myself.
             </p>
             <div className="text-5xl flex justify-center gap-10 py-3 text-gray-600 dark:text-gray-400">
               <a href="https://www.linkedin.com/in/nithimeth-mandee-b5b9a6278" target="_blank" rel="noopener noreferrer">
@@ -72,36 +87,55 @@ export default function Home() {
               <AiFillPhone />
               <span className="ml-2">66+ 85-317-7659</span>
             </a>
-            <div className="flex items-center justify-center mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 relative overflow-hidden mt-20 md:h-96 md:w-96">
-              <Image src={me} layout="fill" objectFit="cover" alt="Nithimeth Mandee" />
-            </div>
           </div>
         </section>
-        <section className="py-10">
-          <h3 className="text-3xl py-1 dark:text-white">Activities & Competitions</h3>
+        <section className="py-10 px-10">
+          <h3 className="text-3xl py-1 dark:text-white" id="Act">Activities & Competitions</h3>
           <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
             As a student, I actively participate in <span className="text-teal-500">IT activities and competitions:</span>
           </p>
           <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
             {/* Activity Cards */}
-            <ActivityCard src={act4} title="AAA Hackathon" desc="Hackathon Alveola Antral Artery Detection In CBCT Images" skills={["Python","Pytorch","Torchvision", "Deep Learning"]} />
-            <ActivityCard src={act1} title="Thailand Cyber Top Talent 2024" desc="My team ranked 93/340 in the Thailand Cyber Top Talent 2024 CTF competition." skills={["Web Security", "Penetration Testing", "Vulnerability Assessment"]} />
+            <ActivityCard src={act4} title="AAA Hackathon" desc="Hackathon Alveola Antral Artery Detection In CBCT Images" skills={["Python", "Pytorch", "Torchvision", "Deep Learning"]} />
+            <ActivityCard src={act1} title="Thailand Cyber Top Talent 2024" desc="My team ranked 93/340 in the Thailand Cyber Top Talent 2024 CTF competition by NCSA." skills={["Web Security", "Penetration Testing", "Vulnerability Assessment"]} />
             <ActivityCard src={act2} title="MU My Mind Hackathon" desc="MU My Mind Hackathon: Designed an app to help people with depression." skills={["Figma"]} />
             <ActivityCard src={act3} title="Teacher Assistant" desc="Helped teach coding in Python & C programming to high school students." skills={["Teaching"]} />
           </div>
         </section>
-        <section className="py-10">
-          <h3 className="text-3xl py-1 dark:text-white">Skills</h3>
+        <section className="py-10 px-10">
+          <h3 className="text-3xl py-1 dark:text-white" id="Skill">Skills</h3>
           <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
             These are what I do to improve my skills:
           </p>
           <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
-            <SkillCard src={s2} title="GO Language Exercises" desc="Solved exercises on Exercism using GO Language." />
-            <SkillCard src={s1} title="PicoCTF Challenges" desc="Completed challenges on PicoCTF." />
+            <SkillCard
+              src={leet}
+              name="LeetCode"
+              description="A website that I use to practice my coding logic."
+              link="https://leetcode.com/u/MaRoonRedSky/"
+            />
+            <SkillCard
+              src={go}
+              name="Exercism"
+              description="A website that I use to learn and practice GO Language."
+              link="https://exercism.org/profiles/NithimethM/"
+            />
+            <SkillCard
+              src={picoic}
+              name="Pico CTF"
+              description="A website where I use to practice my CTF skills."
+              link="https://play.picoctf.org/users/Nithimeth"
+            />
+            <SkillImg
+              src={huntic}
+              name="Huntress CTF"
+              description="A small competitions where I use to practice my CTF skills."
+              viewImage={hunt} 
+            />
           </div>
         </section>
-        <section className="py-10">
-          <h3 className="text-3xl py-1 dark:text-white">Certificates</h3>
+        <section className="py-10 px-10">
+          <h3 className="text-3xl py-1 dark:text-white" id="cer">Certificates</h3>
           <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
             All of my certificates that I have earned:
           </p>
@@ -115,10 +149,10 @@ export default function Home() {
             <CerCard src={cer6} title="Network Security & Cybersecurity" desc="Network Security & Cybersecurity" />
             <CerCard src={cer8} title="Node.js" desc="Introduction to Back-end Developer by Node.js" />
             <CerCard src={cer9} title="Ethical Hacking & Penetration Testing" desc="Ethical Hacking & Penetration Testing" />
-            <CerCard src={cer10} title="Thailand Cyber Top Talent 2024" desc="My team ranked 93/340 in the Thailand Cyber Top Talent 2024 CTF competition." />
+            <CerCard src={cer10} title="Thailand Cyber Top Talent 2024" desc="My team ranked 93/340 in the Thailand Cyber Top Talent 2024 CTF competition by NCSA." />
           </div>
         </section>
-        <section className="py-10">
+        <section className="py-10 px-10">
           <h3 className="text-3xl py-1 dark:text-white">My Education</h3>
           <div className="lg:flex gap-10">
             <EducationCard src={SWN} title="Sarasas Witaed Nimitmai School" desc="Grade 1 - 6" />

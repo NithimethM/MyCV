@@ -17,8 +17,8 @@ export default function ActivityCard({ src, title, desc, skills }) {
         <Image
           onClick={openModal}
           className="rounded-lg object-cover cursor-pointer"
-          width={"100%"}
-          height={"100%"}
+          width={"80%"}
+          height={"50%"}
           layout="responsive"
           src={src}
           alt={title}

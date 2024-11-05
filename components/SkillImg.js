@@ -1,31 +1,29 @@
+import Image from 'next/image';
 import { useState } from 'react';
 import Modal from 'react-modal';
-import Image from 'next/image';
 
-Modal.setAppElement('#__next'); // Ensure accessibility
+Modal.setAppElement('#__next'); // Necessary for accessibility in Next.js
 
-export default function CerCard({ src, title, desc }) {
+export default function SkillImg({ src, name, description, viewImage }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
   return (
-    <>
-      <div className="basis-1/3 flex-1">
-        <Image
-          onClick={openModal}
-          className="rounded-lg object-cover cursor-pointer"
-          width={"100%"}
-          height={"70%"}
-          layout="responsive"
-          src={src}
-          alt={title}
-        />
-        <p className="text-center mt-2 text-gray-600 dark:text-gray-400">{desc}</p>
+    <div className="flex items-center gap-4 mb-6">
+      <div className="w-16 h-16 relative">
+        <Image src={src} layout="fill" objectFit="contain" alt={`${name} logo`} />
       </div>
+      <div>
+        <h4 className="text-xl font-semibold dark:text-white">{name}</h4>
+        <p className="text-gray-600 dark:text-gray-400 mb-2">{description}</p>
+        <button onClick={openModal} className="text-teal-500 hover:underline">
+          Click to view image
+        </button>
 
-      <Modal
+        {/* Modal for viewing image */}
+        <Modal
         isOpen={isOpen}
         onRequestClose={closeModal}
         shouldCloseOnOverlayClick={false} // Disable default overlay close
@@ -43,15 +41,16 @@ export default function CerCard({ src, title, desc }) {
             onClick={(e) => e.stopPropagation()} // Prevents close when clicking inside modal content
           >
             <Image
-              src={src}
-              alt={title}
+              src={viewImage}
+              alt={`${name} full view`}
               width={800}
               height={600}
               className="rounded-lg object-contain"
             />
           </div>
-        </div>
-      </Modal>
-    </>
+          </div>
+        </Modal>
+      </div>
+    </div>
   );
 }
