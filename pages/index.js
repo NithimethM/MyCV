@@ -3,7 +3,6 @@ import ActivityCard from "../components/ActivityCard";
 import SkillCard from "../components/SkillCard";
 import CerCard from "../components/CerCard";
 import EducationCard from "../components/EducationCard";
-import Link from "next/link";
 import { AiFillLinkedin, AiFillFacebook, AiFillInstagram, AiFillPhone } from "react-icons/ai";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import Image from "next/image";
@@ -56,7 +55,7 @@ export default function Home() {
               Third-year student in the Faculty of Information and Communication Technology at Mahidol University.
             </h3>
             <p className="text-md py-5 leading-8 text-gray-800 dark:text-gray-200 max-w-xl mx-auto md:text-xl">
-              I'm interested in developing software engineer, full-stack development, and cybersecurity. I love learning new things.
+            I&apos;m junior developer with a focus on developing software engineer, full-stack development, and cybersecurity. I love to learn new things, pursue new passions, gain experience, and am always ready to develop myself.
             </p>
             <div className="text-5xl flex justify-center gap-10 py-3 text-gray-600 dark:text-gray-400">
               <a href="https://www.linkedin.com/in/nithimeth-mandee-b5b9a6278" target="_blank" rel="noopener noreferrer">
