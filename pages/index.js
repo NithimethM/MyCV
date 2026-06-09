@@ -241,7 +241,7 @@ export default function Home() {
               src={act3}
               title="Teacher Assistant"
               desc="Helped teach coding in Python & C programming to high school students."
-              skills={["Teaching"]}
+              skills={["Teaching","Python"]}
             />
           </div>
         </section>
