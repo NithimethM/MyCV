@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 Modal.setAppElement('#__next'); // Ensure accessibility
 
-export default function ActivityCard({ src, title, desc, skills }) {
+export default function ActivityCard({ src, title, desc, skills, link, buttonLabel = "View Scoreboard" }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => setIsOpen(true);
@@ -29,6 +29,20 @@ export default function ActivityCard({ src, title, desc, skills }) {
             <li key={index} className="text-left">{skill}</li>
           ))}
         </ul>
+        
+        {/* Button for external link */}
+        {link && (
+          <div className="mt-4 text-center">
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mb-4 bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600"
+            >
+              {buttonLabel}
+            </a>
+          </div>
+        )}
       </div>
 
       {/* Modal to show full image */}
@@ -40,21 +54,21 @@ export default function ActivityCard({ src, title, desc, skills }) {
         className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center z-50"
         overlayClassName="fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-75 z-40"
       >
-      <div
+        <div
           className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center"
           onClick={closeModal} // Closes modal on click
         >
-        <div
+          <div
             className="relative"
             onClick={(e) => e.stopPropagation()} // Prevents close when clicking inside modal content
           >
             {/* Full-scale image inside modal */}
             <Image
-            src={src}
-            alt={title}
-            width={800}
-            height={600}
-            className="rounded-lg object-contain"
+              src={src}
+              alt={title}
+              width={800}
+              height={600}
+              className="rounded-lg object-contain"
             />
           </div>
         </div>
