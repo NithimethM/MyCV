@@ -16,6 +16,7 @@ import act3 from "../public/Op1.JPG";
 import act4 from "../public/AAA.JPG";
 import act5 from "../public/freshy.JPG";
 import act6 from "../public/freshy2.JPG";
+import act7 from "../public/Innovation.jpg";
 import leet from "../public/LeetCode.png";
 import go from "../public/exercism.png";
 import picoic from "../public/picoicon.png"
@@ -208,6 +209,12 @@ export default function Home() {
             As a student, I actively participate in <span className="text-teal-500">IT activities and competitions:</span>
           </p>
           <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
+          `<ActivityCard
+              src={act7}
+              title="Innovation Day 2026 Thailand"
+              desc="CTnavi⁺ is an AI-powered brain navigator developed by Asst. Prof. Dr. Akara Supratak (Mahidol University) that auto-predicts stroke-related diseases from CT scans."
+              skills={["Presentation"]}
+            />
             <ActivityCard
               src={act1}
               title="Thailand Cyber Top Talent 2024"
