@@ -212,7 +212,7 @@ export default function Home() {
           `<ActivityCard
               src={act7}
               title="Innovation Day 2026 Thailand"
-              desc="CTnavi⁺ is an AI-powered brain navigator developed by Asst. Prof. Dr. Akara Supratak (Mahidol University) that auto-predicts stroke-related diseases from CT scans."
+              desc="Innovation Day 2026 Thailand — Presented CTnavi⁺, an AI-powered brain navigator by Asst. Prof. Dr. Akara Supratak."
               skills={["Presentation"]}
             />
             <ActivityCard
